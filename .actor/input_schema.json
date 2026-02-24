@@ -1,24 +1,31 @@
 {
-    "title": "CheerioCrawler Template",
+    "title": "Guinness World Records Scraper",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
-        "startUrls": {
-            "title": "Start URLs",
-            "type": "array",
-            "description": "URLs to start with.",
-            "editor": "requestListSources",
-            "prefill": [
-                {
-                    "url": "https://apify.com"
-                }
-            ]
+        "searchTerm": {
+            "title": "Search Term",
+            "type": "string",
+            "description": "The term to search for on Guinness World Records.",
+            "default": "record"
         },
-        "maxRequestsPerCrawl": {
-            "title": "Max Requests per Crawl",
+        "searchType": {
+            "title": "Search Type",
+            "type": "string",
+            "description": "The type of results to search for.",
+            "editor": "select",
+            "default": "record",
+            "enum": ["record", "newsarticle", "page"],
+            "enumTitles": ["Record", "News Article", "Page"]
+        },
+        "maxItems": {
+            "title": "Max Items",
             "type": "integer",
-            "description": "Maximum number of requests that can be made by this crawler.",
-            "default": 100
+            "description": "Maximum number of items to scrape.",
+            "editor": "number",
+            "prefill": 40,
+            "minimum": 1
         }
-    }
+    },
+    "required": ["searchTerm"]
 }

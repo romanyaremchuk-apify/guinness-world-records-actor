@@ -1,13 +1,13 @@
 {
 	"actorSpecification": 1,
 	"name": "guinness-world-records-actor",
-	"title": "Project Cheerio Crawler Typescript",
-	"description": "Crawlee and Cheerio project in typescript.",
+	"title": "Guinness World Records Scraper",
+	"description": "Scrapes records, news articles, and pages from Guinness World Records by search term.",
 	"version": "0.0",
 	"buildTag": "latest",
 	"meta": {
 		"templateId": "ts-crawlee-cheerio",
-		"generatedBy": "<FILL-IN-MODEL>"
+		"generatedBy": "Claude Code with Claude Sonnet 4.6"
 	},
 	"input": "./input_schema.json",
 	"output": "./output_schema.json",
