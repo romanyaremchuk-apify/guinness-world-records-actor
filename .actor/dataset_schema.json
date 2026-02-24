@@ -1,11 +1,26 @@
 {
     "actorSpecification": 1,
-    "fields": {},
+    "fields": {
+        "type": "object",
+        "properties": {
+            "title": { "type": ["string", "null"] },
+            "status": { "type": ["string", "null"] },
+            "content": { "type": ["string", "null"] },
+            "slug": { "type": ["string", "null"] },
+            "categories": { "type": "array", "items": { "type": "string" } },
+            "location": { "type": "array", "items": { "type": "string" } },
+            "type": { "type": "string", "enum": ["record", "newsarticle", "page"] },
+            "pubDate": { "type": ["string", "null"] },
+            "lastUpdated": { "type": "string" },
+            "keywords": { "type": "array", "items": { "type": "string" } },
+            "url": { "type": ["string", "null"] }
+        }
+    },
     "views": {
         "overview": {
             "title": "Overview",
             "transformation": {
-                "fields": ["title", "url"]
+                "fields": ["title", "type", "status", "categories", "location", "pubDate", "lastUpdated", "keywords", "url"]
             },
             "display": {
                 "component": "table",
@@ -13,6 +28,34 @@
                     "title": {
                         "label": "Title",
                         "format": "text"
+                    },
+                    "type": {
+                        "label": "Type",
+                        "format": "text"
+                    },
+                    "status": {
+                        "label": "Status",
+                        "format": "text"
+                    },
+                    "categories": {
+                        "label": "Categories",
+                        "format": "array"
+                    },
+                    "location": {
+                        "label": "Location",
+                        "format": "array"
+                    },
+                    "pubDate": {
+                        "label": "Pub Date",
+                        "format": "date"
+                    },
+                    "lastUpdated": {
+                        "label": "Last Updated",
+                        "format": "date"
+                    },
+                    "keywords": {
+                        "label": "Keywords",
+                        "format": "array"
                     },
                     "url": {
                         "label": "URL",
