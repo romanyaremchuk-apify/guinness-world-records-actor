@@ -8,7 +8,7 @@
             "type": "string",
             "description": "The term to search for on Guinness World Records.",
             "editor": "textfield",
-            "default": "record"
+            "prefill": "record"
         },
         "searchType": {
             "title": "Search Type",
