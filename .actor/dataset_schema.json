@@ -1,6 +1,21 @@
 {
     "actorSpecification": 1,
-    "fields": {},
+    "fields": {
+        "type": "object",
+        "properties": {
+            "title": { "type": ["string", "null"] },
+            "status": { "type": ["string", "null"] },
+            "content": { "type": ["string", "null"] },
+            "slug": { "type": ["string", "null"] },
+            "categories": { "type": "array", "items": { "type": "string" } },
+            "location": { "type": "array", "items": { "type": "string" } },
+            "type": { "type": "string", "enum": ["record", "newsarticle", "page"] },
+            "pubDate": { "type": ["string", "null"] },
+            "lastUpdated": { "type": "string" },
+            "keywords": { "type": "array", "items": { "type": "string" } },
+            "url": { "type": ["string", "null"] }
+        }
+    },
     "views": {
         "overview": {
             "title": "Overview",

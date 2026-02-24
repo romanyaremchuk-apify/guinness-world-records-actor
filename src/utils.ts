@@ -1,4 +1,4 @@
-import type { RequestOptions } from 'crawlee';
+import type { RequestOptions } from '@crawlee/http';
 import { API_URL, GWR_BASE_URL, GWR_RECORD_BASE_URL, LABELS, PER_PAGE } from './constants.js';
 import type { UserData, UserInput } from './types.js';
 
@@ -34,16 +34,14 @@ export function buildRecordUrl(slug: string | null, type: string, pubDate: strin
     return `${GWR_BASE_URL}/${normalizedSlug}`;
 }
 
-export function getStartUrls(
-    pagesNeeded: number,
+// Builds a single search page request with all userData needed for the handler to enqueue subsequent pages.
+export function buildPageRequest(
+    page: number,
     searchTerm: string,
     maxItems: number,
-    searchType: NonNullable<UserInput['searchType']>,
-): RequestOptions<UserData[typeof LABELS.SEARCH]>[] {
-    return Array.from({ length: pagesNeeded }, (_, i) => {
-        const page = i + 1;
-        const itemsOnPage = Math.min(PER_PAGE, maxItems - i * PER_PAGE);
-        const url = `${API_URL}?term=${encodeURIComponent(searchTerm)}&page=${page}&type=${searchType}&max=${itemsOnPage}`;
-        return { url, label: LABELS.SEARCH, userData: { page, searchType } };
-    });
+    searchType: UserInput['searchType'],
+): RequestOptions<UserData[typeof LABELS.SEARCH]> {
+    const itemsOnPage = Math.min(PER_PAGE, maxItems - (page - 1) * PER_PAGE);
+    const url = `${API_URL}?term=${encodeURIComponent(searchTerm)}&page=${page}&type=${searchType}&max=${itemsOnPage}`;
+    return { url, label: LABELS.SEARCH, userData: { page, searchType, searchTerm, maxItems } };
 }

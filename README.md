@@ -8,14 +8,6 @@ An [Apify Actor](https://apify.com/actors) that scrapes records, news articles, 
 - Returns structured data including title, URL, categories, location, keywords, and dates
 - Supports filtering by content type: records, news articles, or pages
 
-## Input
-
-| Field | Type | Description | Default |
-|---|---|---|---|
-| `searchTerm` | string | Term to search for | `"record"` |
-| `searchType` | string | Type of results: `record`, `newsarticle`, or `page` | `"record"` |
-| `maxItems` | integer | Maximum number of items to return | `40` |
-
 ## Output
 
 Each item in the dataset contains:
@@ -34,20 +26,6 @@ Each item in the dataset contains:
   "keywords": ["running", "speed"],
   "url": "https://www.guinnessworldrecords.com/world-records/fastest-100m-sprint"
 }
-```
-
-## Quick start
-
-```bash
-# Install dependencies
-npm install
-
-# Run locally
-apify run
-
-# Deploy to Apify platform
-apify login
-apify push
 ```
 
 ## Resources
