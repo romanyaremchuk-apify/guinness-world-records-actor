@@ -34,6 +34,6 @@
 		"format:check": "prettier --check .",
 		"test": "echo \"Error: oops, the Actor has no tests yet, sad!\" && exit 1"
 	},
-	"author": "It's not you it's me",
+	"author": "Roman Yaremchuk",
 	"license": "ISC"
 }

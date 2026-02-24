@@ -1,6 +1,6 @@
 import type { RequestOptions } from 'crawlee';
 import { API_URL, GWR_BASE_URL, GWR_RECORD_BASE_URL, LABELS, PER_PAGE } from './constants.js';
-import type { UserData } from './types.js';
+import type { UserData, UserInput } from './types.js';
 
 // Strips HTML tags from a string and collapses extra whitespace.
 export function stripHtml(html: string | null): string | null {
@@ -38,7 +38,7 @@ export function getStartUrls(
     pagesNeeded: number,
     searchTerm: string,
     maxItems: number,
-    searchType: string,
+    searchType: NonNullable<UserInput['searchType']>,
 ): RequestOptions<UserData[typeof LABELS.SEARCH]>[] {
     return Array.from({ length: pagesNeeded }, (_, i) => {
         const page = i + 1;

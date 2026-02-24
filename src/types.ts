@@ -7,12 +7,12 @@ export type UserInput = {
 };
 
 export type UserData = {
-    [LABELS.SEARCH]: { page: number; searchType: string };
+    [LABELS.SEARCH]: { page: number; searchType: NonNullable<UserInput['searchType']> };
 };
 
 export interface GwrRecord {
-    Title: string;
-    Status: string;
+    Title: string | null;
+    Status: string | null;
     Content: string;
     Slug: string | null;
     Categories: string[];

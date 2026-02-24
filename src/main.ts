@@ -1,10 +1,12 @@
 import { setTimeout } from 'node:timers/promises';
+
 import { HttpCrawler } from '@crawlee/http';
 import { Actor, log } from 'apify';
+
 import { createRouter } from './routes.js';
-import { PER_PAGE } from "./constants.js"
-import { UserInput } from "./types.js"
-import { getStartUrls } from "./utils.js"
+import { PER_PAGE } from './constants.js';
+import type { UserInput } from './types.js';
+import { getStartUrls } from './utils.js';
 await Actor.init();
 
 Actor.on('aborting', async () => {

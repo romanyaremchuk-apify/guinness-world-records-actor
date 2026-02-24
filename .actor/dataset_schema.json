@@ -5,7 +5,7 @@
         "overview": {
             "title": "Overview",
             "transformation": {
-                "fields": ["title", "url"]
+                "fields": ["title", "type", "status", "categories", "location", "pubDate", "lastUpdated", "keywords", "url"]
             },
             "display": {
                 "component": "table",
@@ -13,6 +13,34 @@
                     "title": {
                         "label": "Title",
                         "format": "text"
+                    },
+                    "type": {
+                        "label": "Type",
+                        "format": "text"
+                    },
+                    "status": {
+                        "label": "Status",
+                        "format": "text"
+                    },
+                    "categories": {
+                        "label": "Categories",
+                        "format": "array"
+                    },
+                    "location": {
+                        "label": "Location",
+                        "format": "array"
+                    },
+                    "pubDate": {
+                        "label": "Pub Date",
+                        "format": "date"
+                    },
+                    "lastUpdated": {
+                        "label": "Last Updated",
+                        "format": "date"
+                    },
+                    "keywords": {
+                        "label": "Keywords",
+                        "format": "array"
                     },
                     "url": {
                         "label": "URL",
