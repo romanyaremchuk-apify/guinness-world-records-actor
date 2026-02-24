@@ -14,7 +14,7 @@ Actor.on('aborting', async () => {
     await Actor.exit();
 });
 
-const { searchTerm = 'record', searchType = 'record', maxItems = 40 } = (await Actor.getInput<UserInput>()) ?? ({} as UserInput);
+const { searchTerm, searchType, maxItems } = await Actor.getInputOrThrow<UserInput>();
 
 if (maxItems <= 0) {
     log.error('maxItems must be a positive integer');
